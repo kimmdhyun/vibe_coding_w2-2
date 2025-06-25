@@ -1,0 +1,20 @@
+name: PR Reviewer
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request Reviewers
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.pulls.requestReviewers({
+              pull_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              reviewers: ['github-username'] # TODO: Replace with actual reviewer(s)
+            })
