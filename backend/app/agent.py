@@ -62,4 +62,8 @@ def search_products(query: Optional[str]) -> str:
             return "검색 결과를 가져올 수 없습니다."
             
     except Exception as e:
-        return f"검색 중 오류가 발생했습니다: {str(e)}" 
+        return f"검색 중 오류가 발생했습니다: {str(e)}"
+
+
+def buggy_function():
+    return 1 / 0  # 의도적 버그: ZeroDivisionError 
